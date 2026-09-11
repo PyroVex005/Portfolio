@@ -1,299 +1,210 @@
 <!DOCTYPE html>
-<html lang="uz" data-theme="dark">
+<html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Asadbek Xamraliyev — Business-minded Full Stack Developer portfolio." />
-  <title>Asadbek Xamraliyev — Portfolio</title>
+  <title>Ridzhan | Full Frontend Developer</title>
+  <meta name="description" content="Asadbek Xamraliyev (Ridzhan) — Full Frontend Developer portfolio" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="aurora aurora-1"></div>
-  <div class="aurora aurora-2"></div>
-  <div class="cursor-glow"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
 
   <header class="topbar glass">
-    <a href="#home" class="brand" aria-label="Asadbek Xamraliyev">
-      <span class="brand-mark">AX</span>
-      <span class="brand-text">Asadbek.</span>
+    <a href="#home" class="brand">
+      <div class="brand-logo">R</div>
+      <div>
+        <strong>Ridzhan</strong>
+        <span data-i18n="roleSmall">Frontend Developer</span>
+      </div>
     </a>
 
     <nav class="nav" id="nav">
-      <a href="#home" data-i18n="nav_home">Bosh sahifa</a>
-      <a href="#about" data-i18n="nav_about">Men haqimda</a>
-      <a href="#services" data-i18n="nav_services">Xizmatlar</a>
-      <a href="#projects" data-i18n="nav_projects">Loyihalar</a>
-      <a href="#contact" data-i18n="nav_contact">Aloqa</a>
+      <a href="#home" data-i18n="navHome">Bosh sahifa</a>
+      <a href="#about" data-i18n="navAbout">Men haqimda</a>
+      <a href="#services" data-i18n="navServices">Xizmatlar</a>
+      <a href="#projects" data-i18n="navProjects">Loyihalar</a>
+      <a href="#contact" data-i18n="navContact">Kontakt</a>
     </nav>
 
     <div class="top-actions">
-      <div class="lang-switch glass-soft" aria-label="Language selector">
+      <div class="lang-switch glass-soft">
         <button class="lang-btn active" data-lang="uz">UZ</button>
-        <button class="lang-btn" data-lang="ru">RU</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="sun">☀</span>
-        <span class="moon">☾</span>
-      </button>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu">
-        <span></span><span></span>
-      </button>
+      <button class="theme-btn glass-soft" id="themeToggle" aria-label="theme toggle">◐</button>
+      <button class="menu-btn glass-soft" id="menuBtn">☰</button>
     </div>
   </header>
 
   <main>
-    <section class="hero section" id="home">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow glass-soft">
-            <span class="status-dot"></span>
-            <span data-i18n="hero_badge">Digital bizneslar uchun zamonaviy yechimlar</span>
-          </div>
+    <section class="hero container" id="home">
+      <div class="hero-copy reveal">
+        <div class="mini-badge glass-soft">
+          <span class="dot"></span>
+          <span data-i18n="badge">Premium frontend experiences</span>
+        </div>
+        <h1>
+          <span class="title-line gradient" data-i18n="heroName">Ridzhan</span>
+          <span class="title-line">Asadbek Xamraliyev</span>
+        </h1>
+        <h2 data-i18n="heroRole">Full Frontend Developer</h2>
+        <p class="hero-sub" data-i18n="heroEdu">Sarbon Education Center — IT & English student</p>
+        <p class="hero-text" data-i18n="heroText">
+          Men zamonaviy, tez, kuchli animatsiyalarga ega va biznesga foyda olib keladigan web saytlar yarataman.
+          Mening maqsadim — g‘oyalarni premium darajadagi frontend mahsulotga aylantirish.
+        </p>
 
-          <h1>
-            <span data-i18n="hero_title_1">Men biznes g‘oyalarni</span>
-            <span class="gradient-text" data-i18n="hero_title_2">premium digital mahsulotlarga</span>
-            <span data-i18n="hero_title_3">aylantiraman.</span>
-          </h1>
-
-          <p class="hero-text" data-i18n="hero_desc">
-            Men Asadbek Xamraliyev — zamonaviy web interfeyslar, biznes saytlar va foydalanuvchiga qulay digital tajribalar yaratishga qiziqadigan dasturchiman.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary magnetic" href="#projects">
-              <span data-i18n="hero_cta">Loyihalarni ko‘rish</span>
-              <span>↗</span>
-            </a>
-            <a class="btn btn-secondary magnetic" href="#contact">
-              <span data-i18n="hero_contact">Bog‘lanish</span>
-            </a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat glass-soft">
-              <strong>3</strong>
-              <span data-i18n="stat_languages">til</span>
-            </div>
-            <div class="stat glass-soft">
-              <strong>∞</strong>
-              <span data-i18n="stat_ideas">g‘oya</span>
-            </div>
-            <div class="stat glass-soft">
-              <strong>100%</strong>
-              <span data-i18n="stat_focus">e’tibor</span>
-            </div>
-          </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary" data-i18n="writeMe">Menga yozing</a>
+          <a href="#projects" class="btn btn-secondary" data-i18n="seeWork">Ishlarimni ko‘ring</a>
         </div>
 
-        <div class="hero-visual reveal">
-          <div class="orbital-card glass tilt-card">
-            <div class="card-top">
-              <div>
-                <span class="mini-label" data-i18n="profile_label">PROFILE / 2026</span>
-                <h3>Asadbek Xamraliyev</h3>
-              </div>
-              <span class="availability">● <span data-i18n="available">Available</span></span>
-            </div>
-
-            <div class="profile-visual">
-              <div class="profile-ring ring-1"></div>
-              <div class="profile-ring ring-2"></div>
-              <div class="avatar-core">AX</div>
-              <div class="floating-chip chip-1">HTML</div>
-              <div class="floating-chip chip-2">CSS</div>
-              <div class="floating-chip chip-3">JS</div>
-            </div>
-
-            <div class="card-bottom">
-              <div>
-                <span data-i18n="role_label">Yo‘nalish</span>
-                <strong data-i18n="role_value">Web Development</strong>
-              </div>
-              <div>
-                <span data-i18n="location_label">Ta'lim</span>
-                <strong>Sarbon Education Center</strong>
-              </div>
-            </div>
+        <div class="stats-row">
+          <div class="small-card glass reveal-delay-1">
+            <strong>10+</strong>
+            <span data-i18n="statTech">Texnologiya</span>
           </div>
-
-          <div class="floating-panel glass panel-a">
-            <span>✦</span>
-            <div><b data-i18n="panel_fast">Fast UI</b><small data-i18n="panel_fast_sub">Smooth experience</small></div>
+          <div class="small-card glass reveal-delay-2">
+            <strong>2</strong>
+            <span data-i18n="statProjects">Featured loyiha</span>
           </div>
-          <div class="floating-panel glass panel-b">
-            <span>◌</span>
-            <div><b data-i18n="panel_design">Premium Design</b><small data-i18n="panel_design_sub">Glass + motion</small></div>
+          <div class="small-card glass reveal-delay-3">
+            <strong>100%</strong>
+            <span data-i18n="statFocus">Fokus</span>
           </div>
         </div>
       </div>
 
-      <div class="scroll-indicator"><span></span><small>SCROLL</small></div>
-    </section>
+      <div class="hero-visual reveal">
+        <div class="profile-frame glass">
+          <div class="profile-glow"></div>
+          <img src="assets/asadbek.jpg" alt="Asadbek Xamraliyev" class="profile-img" />
+          <div class="floating-chip chip-a">Frontend Developer</div>
+          <div class="floating-chip chip-b">Available</div>
+        </div>
 
-    <section class="section" id="about">
-      <div class="section-heading reveal">
-        <span class="section-kicker">01 / <span data-i18n="about_kicker">MEN HAQIMDA</span></span>
-        <h2 data-i18n="about_title">Texnologiya, dizayn va biznes fikrlash bir nuqtada.</h2>
-      </div>
-
-      <div class="about-grid">
-        <article class="glass feature-card large reveal">
-          <span class="feature-index">A</span>
-          <h3 data-i18n="about_card_title">Kimman?</h3>
-          <p data-i18n="about_card_desc">
-            Men 16 yoshli IT o‘quvchisiman. Hozir Sarbon Education Center’da IT va ingliz tili kurslarida o‘qiyman. Maqsadim — kuchli texnologiya va chiroyli dizayn orqali real biznes muammolariga yechim yaratish.
-          </p>
-          <div class="tag-row">
-            <span>Business</span><span>UI/UX</span><span>Web</span><span>Growth</span>
+        <div class="tech-box glass reveal-delay-2">
+          <div class="box-head">
+            <h3 data-i18n="techTitle">Texnologiyalarim</h3>
           </div>
-        </article>
-
-        <article class="glass feature-card reveal">
-          <span class="feature-index">B</span>
-          <h3 data-i18n="about_learning_title">Hozirgi fokus</h3>
-          <ul class="clean-list">
-            <li data-i18n="about_learning_1">HTML, CSS, JavaScript</li>
-            <li data-i18n="about_learning_2">Responsive web design</li>
-            <li data-i18n="about_learning_3">UI animation & interaction</li>
-            <li data-i18n="about_learning_4">English for IT</li>
-          </ul>
-        </article>
-
-        <article class="glass feature-card accent-card reveal">
-          <span class="feature-index">C</span>
-          <div class="big-quote">“</div>
-          <h3 data-i18n="about_quote">Oddiy sayt emas — taassurot qoldiradigan digital mahsulot.</h3>
-        </article>
+          <div class="tech-grid">
+            <span>HTML</span><span>CSS</span><span>JS</span><span>React</span><span>Git</span>
+            <span>GitHub</span><span>Bootstrap</span><span>Figma</span><span>CodePen</span><span>Tailwind</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="services">
-      <div class="section-heading reveal">
-        <span class="section-kicker">02 / <span data-i18n="services_kicker">XIZMATLAR</span></span>
-        <h2 data-i18n="services_title">Biznes uchun ko‘rinishdan natijagacha.</h2>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card glass reveal">
-          <div class="service-icon">⌁</div>
-          <span class="service-no">01</span>
-          <h3 data-i18n="service_1_title">Business Website</h3>
-          <p data-i18n="service_1_desc">Kompaniya, xizmat yoki shaxsiy brend uchun premium, tezkor va responsive saytlar.</p>
-        </article>
-        <article class="service-card glass reveal">
-          <div class="service-icon">◈</div>
-          <span class="service-no">02</span>
-          <h3 data-i18n="service_2_title">Landing Page</h3>
-          <p data-i18n="service_2_desc">Mahsulot yoki xizmatni kuchli vizual ierarxiya va CTA bilan taqdim qiluvchi landing page.</p>
-        </article>
-        <article class="service-card glass reveal">
-          <div class="service-icon">✦</div>
-          <span class="service-no">03</span>
-          <h3 data-i18n="service_3_title">UI Interaction</h3>
-          <p data-i18n="service_3_desc">Micro-animation, hover, scroll effect va foydalanuvchini jalb qiladigan interaktiv tajriba.</p>
-        </article>
+    <section class="container section" id="about">
+      <div class="section-head reveal">
+        <span class="section-tag">01</span>
+        <div>
+          <h2 data-i18n="aboutTitle">Men haqimda</h2>
+          <p data-i18n="aboutText">Men real mijozlar va bizneslar uchun premium, minimal va kuchli ko‘rinishga ega interfeyslar yaratishga qiziqaman. Apple/iOS ruhidagi clean UI, glassmorphism, motion va responsive frontend — mening asosiy uslubim.</p>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="section-heading reveal">
-        <span class="section-kicker">03 / <span data-i18n="projects_kicker">LOYIHALAR</span></span>
-        <h2 data-i18n="projects_title">Konseptdan premium mahsulotgacha.</h2>
+    <section class="container section" id="services">
+      <div class="section-head reveal">
+        <span class="section-tag">02</span>
+        <div>
+          <h2 data-i18n="servicesTitle">Xizmatlar</h2>
+          <p data-i18n="servicesText">Kichik kartalar, premium motion, gradient shadow va kuchli frontend fokus bilan.</p>
+        </div>
+      </div>
+      <div class="service-grid">
+        <article class="service-card glass reveal"><h3 data-i18n="s1">Biznes sayt</h3><p data-i18n="s1d">Korporativ va ishonchli web saytlar.</p></article>
+        <article class="service-card glass reveal"><h3 data-i18n="s2">Landing page</h3><p data-i18n="s2d">Konversiyaga yo‘naltirilgan ta’sirchan sahifalar.</p></article>
+        <article class="service-card glass reveal"><h3 data-i18n="s3">Dashboard</h3><p data-i18n="s3d">Toza va qulay boshqaruv panellari.</p></article>
+        <article class="service-card glass reveal"><h3 data-i18n="s4">Marketplace</h3><p data-i18n="s4d">E-commerce va mahsulot platformalari.</p></article>
+        <article class="service-card glass reveal"><h3 data-i18n="s5">Responsive frontend</h3><p data-i18n="s5d">Har bir qurilmada mukammal ko‘rinish.</p></article>
+        <article class="service-card glass reveal"><h3 data-i18n="s6">UI implementation</h3><p data-i18n="s6d">Figma dizaynini aniq front-endga aylantirish.</p></article>
+        <article class="service-card glass reveal"><h3 data-i18n="s7">Full site</h3><p data-i18n="s7d">Boshidan oxirigacha to‘liq web loyiha.</p></article>
+        <article class="service-card glass reveal"><h3 data-i18n="s8">Cyberpunk sitelar</h3><p data-i18n="s8d">Futuristik, noodatiy va kuchli vizual saytlar.</p></article>
+      </div>
+    </section>
+
+    <section class="container section" id="projects">
+      <div class="section-head reveal">
+        <span class="section-tag">03</span>
+        <div>
+          <h2 data-i18n="projectsTitle">Loyihalar</h2>
+          <p data-i18n="projectsText">Har bir loyiha uchun alohida batafsil oynacha mavjud.</p>
+        </div>
       </div>
 
-      <div class="projects-list">
+      <div class="project-grid">
         <article class="project-card glass reveal">
-          <div class="project-meta">
-            <span>01</span>
-            <span>Marketplace / UI System</span>
-          </div>
-          <div class="project-preview project-preview-1">
-            <div class="mock-window">
-              <div class="mock-top"><i></i><i></i><i></i></div>
-              <div class="mock-layout">
-                <div class="mock-sidebar"></div>
-                <div class="mock-content">
-                  <div class="mock-hero"></div>
-                  <div class="mock-products"><b></b><b></b><b></b></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div>
-              <h3 data-i18n="project_1_title">Nova Commerce</h3>
-              <p data-i18n="project_1_desc">Elektronika marketplace konsepti: minimal dark UI, mahsulot kartalari va premium ecommerce atmosfera.</p>
-            </div>
-            <a href="#" class="round-link" aria-label="Open project">↗</a>
-          </div>
-        </article>
-
-        <article class="project-card glass reveal">
-          <div class="project-meta">
-            <span>02</span>
-            <span>Creator Platform / Concept</span>
-          </div>
-          <div class="project-preview project-preview-2">
-            <div class="social-ui">
-              <div class="social-sidebar">
-                <div class="s-logo">O</div><i></i><i></i><i></i><i></i>
-              </div>
-              <div class="social-feed">
-                <div class="video-card"></div>
-                <div class="video-info"></div>
-                <div class="video-row"><b></b><b></b><b></b></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div>
+          <div class="project-cover oqim-cover">
+            <div class="cover-content">
+              <span class="cover-label">Video Platform</span>
               <h3>OQIM</h3>
-              <p data-i18n="project_2_desc">O‘zbekiston auditoriyasi uchun creator va video platforma konsepti: binafsha-ko‘k vizual tizim.</p>
+              <p data-i18n="oqimMini">Real people, real stories.</p>
             </div>
-            <a href="#" class="round-link" aria-label="Open project">↗</a>
+          </div>
+          <div class="project-body">
+            <div>
+              <h4>OQIM</h4>
+              <p data-i18n="oqimDesc">Qisqa videolar va creator platforma konsepti.</p>
+            </div>
+            <button class="btn btn-small open-modal" data-modal="oqim" data-i18n="details">Batafsil</button>
+          </div>
+        </article>
+
+        <article class="project-card glass reveal">
+          <div class="project-cover extera-cover">
+            <div class="cover-content">
+              <span class="cover-label">Marketplace</span>
+              <h3>EXTERA</h3>
+              <p data-i18n="exteraMini">Find anything you need.</p>
+            </div>
+          </div>
+          <div class="project-body">
+            <div>
+              <h4>EXTERA</h4>
+              <p data-i18n="exteraDesc">Modern e-commerce va marketplace platformasi.</p>
+            </div>
+            <button class="btn btn-small open-modal" data-modal="extera" data-i18n="details">Batafsil</button>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-      <div class="contact-card glass reveal">
-        <div class="contact-copy">
-          <span class="section-kicker">04 / <span data-i18n="contact_kicker">ALOQA</span></span>
-          <h2 data-i18n="contact_title">Keyingi kuchli loyihani birga boshlaymiz.</h2>
-          <p data-i18n="contact_desc">Hamkorlik, web loyiha yoki yangi g‘oya bo‘yicha menga yozishingiz mumkin.</p>
+    <section class="container section" id="contact">
+      <div class="contact-box glass reveal">
+        <div>
+          <h2 data-i18n="contactTitle">Keling, birga kuchli loyiha qilaylik.</h2>
+          <p data-i18n="contactText">Agar sizga premium frontend, landing page, biznes sayt yoki marketplace kerak bo‘lsa, men bilan bog‘laning.</p>
         </div>
-
-        <div class="contact-actions">
-          <a class="contact-item" href="mailto:axamraliyev8@gmail.com">
-            <span>Email</span>
-            <strong>axamraliyev8@gmail.com</strong>
-            <b>↗</b>
-          </a>
-          <a class="contact-item" href="tel:+998507318605">
-            <span data-i18n="phone_label">Telefon</span>
-            <strong>+998 50 731 86 05</strong>
-            <b>↗</b>
-          </a>
+        <div class="contact-grid">
+          <a href="mailto:axamraliyev8@gmail.com" class="contact-item glass-soft"><span>Email</span><strong>axamraliyev8@gmail.com</strong></a>
+          <a href="tel:+998507318605" class="contact-item glass-soft"><span>Telefon</span><strong>+998 50 731 86 05</strong></a>
+          <a href="https://instagram.com/co.xamraliyev" target="_blank" class="contact-item glass-soft"><span>Instagram</span><strong>@co.xamraliyev</strong></a>
+          <a href="https://t.me/co_xamraliyev" target="_blank" class="contact-item glass-soft"><span>Telegram</span><strong>@co_xamraliyev</strong></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div>
-      <strong>ASADBEK XAMRALIYEV</strong>
-      <span>© 2026</span>
-    </div>
-    <p data-i18n="footer_text">Designed & developed with HTML, CSS & JavaScript.</p>
-    <a href="#home">↑ <span data-i18n="back_top">Yuqoriga</span></a>
+  <footer class="container footer">
+    <p>© 2026 Ridzhan — Full Frontend Developer</p>
+    <p>Built with HTML, CSS and JavaScript.</p>
   </footer>
+
+  <div class="modal" id="modalRoot" aria-hidden="true">
+    <div class="modal-backdrop" id="modalClose"></div>
+    <div class="modal-card glass" id="modalCard">
+      <button class="close-btn" id="closeBtn">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

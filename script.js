@@ -1,136 +1,139 @@
-const html = document.documentElement;
-const themeToggle = document.getElementById("themeToggle");
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
+const body = document.body;
+const themeToggle = document.getElementById('themeToggle');
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+const modalRoot = document.getElementById('modalRoot');
+const modalContent = document.getElementById('modalContent');
+const closeBtn = document.getElementById('closeBtn');
+const modalClose = document.getElementById('modalClose');
 
 const translations = {
   uz: {
-    nav_home:"Bosh sahifa", nav_about:"Men haqimda", nav_services:"Xizmatlar", nav_projects:"Loyihalar", nav_contact:"Aloqa",
-    hero_badge:"Digital bizneslar uchun zamonaviy yechimlar",
-    hero_title_1:"Men biznes g‘oyalarni", hero_title_2:"premium digital mahsulotlarga", hero_title_3:"aylantiraman.",
-    hero_desc:"Men Asadbek Xamraliyev — zamonaviy web interfeyslar, biznes saytlar va foydalanuvchiga qulay digital tajribalar yaratishga qiziqadigan dasturchiman.",
-    hero_cta:"Loyihalarni ko‘rish", hero_contact:"Bog‘lanish", stat_languages:"til", stat_ideas:"g‘oya", stat_focus:"e’tibor",
-    profile_label:"PROFILE / 2026", available:"Available", role_label:"Yo‘nalish", role_value:"Web Development", location_label:"Ta'lim",
-    panel_fast:"Fast UI", panel_fast_sub:"Smooth experience", panel_design:"Premium Design", panel_design_sub:"Glass + motion",
-    about_kicker:"MEN HAQIMDA", about_title:"Texnologiya, dizayn va biznes fikrlash bir nuqtada.",
-    about_card_title:"Kimman?", about_card_desc:"Men 16 yoshli IT o‘quvchisiman. Hozir Sarbon Education Center’da IT va ingliz tili kurslarida o‘qiyman. Maqsadim — kuchli texnologiya va chiroyli dizayn orqali real biznes muammolariga yechim yaratish.",
-    about_learning_title:"Hozirgi fokus", about_learning_1:"HTML, CSS, JavaScript", about_learning_2:"Responsive web design", about_learning_3:"UI animation & interaction", about_learning_4:"English for IT",
-    about_quote:"Oddiy sayt emas — taassurot qoldiradigan digital mahsulot.",
-    services_kicker:"XIZMATLAR", services_title:"Biznes uchun ko‘rinishdan natijagacha.",
-    service_1_title:"Business Website", service_1_desc:"Kompaniya, xizmat yoki shaxsiy brend uchun premium, tezkor va responsive saytlar.",
-    service_2_title:"Landing Page", service_2_desc:"Mahsulot yoki xizmatni kuchli vizual ierarxiya va CTA bilan taqdim qiluvchi landing page.",
-    service_3_title:"UI Interaction", service_3_desc:"Micro-animation, hover, scroll effect va foydalanuvchini jalb qiladigan interaktiv tajriba.",
-    projects_kicker:"LOYIHALAR", projects_title:"Konseptdan premium mahsulotgacha.",
-    project_1_title:"Nova Commerce", project_1_desc:"Elektronika marketplace konsepti: minimal dark UI, mahsulot kartalari va premium ecommerce atmosfera.",
-    project_2_desc:"O‘zbekiston auditoriyasi uchun creator va video platforma konsepti: binafsha-ko‘k vizual tizim.",
-    contact_kicker:"ALOQA", contact_title:"Keyingi kuchli loyihani birga boshlaymiz.", contact_desc:"Hamkorlik, web loyiha yoki yangi g‘oya bo‘yicha menga yozishingiz mumkin.",
-    phone_label:"Telefon", footer_text:"HTML, CSS va JavaScript bilan dizayn va dasturlandi.", back_top:"Yuqoriga"
-  },
-  ru: {
-    nav_home:"Главная", nav_about:"Обо мне", nav_services:"Услуги", nav_projects:"Проекты", nav_contact:"Контакты",
-    hero_badge:"Современные решения для digital-бизнеса",
-    hero_title_1:"Я превращаю бизнес-идеи", hero_title_2:"в премиальные digital-продукты", hero_title_3:"с сильным визуалом.",
-    hero_desc:"Я Асадбек Хамралиев — разработчик, которому интересны современные web-интерфейсы, бизнес-сайты и удобный пользовательский опыт.",
-    hero_cta:"Смотреть проекты", hero_contact:"Связаться", stat_languages:"языка", stat_ideas:"идей", stat_focus:"фокус",
-    profile_label:"ПРОФИЛЬ / 2026", available:"Доступен", role_label:"Направление", role_value:"Web Development", location_label:"Обучение",
-    panel_fast:"Быстрый UI", panel_fast_sub:"Плавный опыт", panel_design:"Premium Design", panel_design_sub:"Glass + motion",
-    about_kicker:"ОБО МНЕ", about_title:"Технологии, дизайн и бизнес-мышление в одной точке.",
-    about_card_title:"Кто я?", about_card_desc:"Мне 16 лет, я изучаю IT. Сейчас учусь IT и английскому языку в Sarbon Education Center. Моя цель — решать реальные бизнес-задачи с помощью технологий и сильного дизайна.",
-    about_learning_title:"Текущий фокус", about_learning_1:"HTML, CSS, JavaScript", about_learning_2:"Адаптивный web-дизайн", about_learning_3:"UI-анимации и интерактив", about_learning_4:"Английский для IT",
-    about_quote:"Не просто сайт — digital-продукт, который производит впечатление.",
-    services_kicker:"УСЛУГИ", services_title:"От сильного визуала до результата для бизнеса.",
-    service_1_title:"Бизнес-сайт", service_1_desc:"Премиальные, быстрые и адаптивные сайты для компаний, услуг и личных брендов.",
-    service_2_title:"Landing Page", service_2_desc:"Продающие landing page с сильной визуальной иерархией и понятными CTA.",
-    service_3_title:"UI Interaction", service_3_desc:"Микро-анимации, hover, scroll-эффекты и вовлекающий интерактив.",
-    projects_kicker:"ПРОЕКТЫ", projects_title:"От концепта до премиального digital-продукта.",
-    project_1_title:"Nova Commerce", project_1_desc:"Концепт marketplace электроники: минималистичный dark UI, карточки товаров и premium ecommerce атмосфера.",
-    project_2_desc:"Концепт creator/video-платформы для аудитории Узбекистана с фиолетово-синей visual-системой.",
-    contact_kicker:"КОНТАКТЫ", contact_title:"Давайте начнем следующий сильный проект.", contact_desc:"Напишите мне по поводу сотрудничества, web-проекта или новой идеи.",
-    phone_label:"Телефон", footer_text:"Designed & developed with HTML, CSS & JavaScript.", back_top:"Наверх"
+    roleSmall:'Frontend Developer', navHome:'Bosh sahifa', navAbout:'Men haqimda', navServices:'Xizmatlar', navProjects:'Loyihalar', navContact:'Kontakt',
+    badge:'Premium frontend experiences', heroName:'Ridzhan', heroRole:'Full Frontend Developer', heroEdu:'Sarbon Education Center — IT & English student',
+    heroText:'Men zamonaviy, tez, kuchli animatsiyalarga ega va biznesga foyda olib keladigan web saytlar yarataman. Mening maqsadim — g‘oyalarni premium darajadagi frontend mahsulotga aylantirish.',
+    writeMe:'Menga yozing', seeWork:'Ishlarimni ko‘ring', statTech:'Texnologiya', statProjects:'Featured loyiha', statFocus:'Fokus',
+    techTitle:'Texnologiyalarim', aboutTitle:'Men haqimda', aboutText:'Men real mijozlar va bizneslar uchun premium, minimal va kuchli ko‘rinishga ega interfeyslar yaratishga qiziqaman. Apple/iOS ruhidagi clean UI, glassmorphism, motion va responsive frontend — mening asosiy uslubim.',
+    servicesTitle:'Xizmatlar', servicesText:'Kichik kartalar, premium motion, gradient shadow va kuchli frontend fokus bilan.',
+    s1:'Biznes sayt', s1d:'Korporativ va ishonchli web saytlar.', s2:'Landing page', s2d:'Konversiyaga yo‘naltirilgan ta’sirchan sahifalar.', s3:'Dashboard', s3d:'Toza va qulay boshqaruv panellari.', s4:'Marketplace', s4d:'E-commerce va mahsulot platformalari.', s5:'Responsive frontend', s5d:'Har bir qurilmada mukammal ko‘rinish.', s6:'UI implementation', s6d:'Figma dizaynini aniq front-endga aylantirish.', s7:'Full site', s7d:'Boshidan oxirigacha to‘liq web loyiha.', s8:'Cyberpunk sitelar', s8d:'Futuristik, noodatiy va kuchli vizual saytlar.',
+    projectsTitle:'Loyihalar', projectsText:'Har bir loyiha uchun alohida batafsil oynacha mavjud.',
+    oqimMini:'Real people, real stories.', oqimDesc:'Qisqa videolar va creator platforma konsepti.', exteraMini:'Find anything you need.', exteraDesc:'Modern e-commerce va marketplace platformasi.', details:'Batafsil',
+    contactTitle:'Keling, birga kuchli loyiha qilaylik.', contactText:'Agar sizga premium frontend, landing page, biznes sayt yoki marketplace kerak bo‘lsa, men bilan bog‘laning.'
   },
   en: {
-    nav_home:"Home", nav_about:"About", nav_services:"Services", nav_projects:"Projects", nav_contact:"Contact",
-    hero_badge:"Modern solutions for digital businesses",
-    hero_title_1:"I turn business ideas", hero_title_2:"into premium digital products", hero_title_3:"with memorable experiences.",
-    hero_desc:"I’m Asadbek Xamraliyev — a developer interested in modern web interfaces, business websites and user-friendly digital experiences.",
-    hero_cta:"View projects", hero_contact:"Contact me", stat_languages:"languages", stat_ideas:"ideas", stat_focus:"focus",
-    profile_label:"PROFILE / 2026", available:"Available", role_label:"Direction", role_value:"Web Development", location_label:"Education",
-    panel_fast:"Fast UI", panel_fast_sub:"Smooth experience", panel_design:"Premium Design", panel_design_sub:"Glass + motion",
-    about_kicker:"ABOUT ME", about_title:"Technology, design and business thinking in one place.",
-    about_card_title:"Who am I?", about_card_desc:"I’m a 16-year-old IT student. I currently study IT and English at Sarbon Education Center. My goal is to solve real business problems through strong technology and thoughtful design.",
-    about_learning_title:"Current focus", about_learning_1:"HTML, CSS, JavaScript", about_learning_2:"Responsive web design", about_learning_3:"UI animation & interaction", about_learning_4:"English for IT",
-    about_quote:"Not just a website — a digital product that leaves an impression.",
-    services_kicker:"SERVICES", services_title:"From strong visuals to business results.",
-    service_1_title:"Business Website", service_1_desc:"Premium, fast and responsive websites for companies, services and personal brands.",
-    service_2_title:"Landing Page", service_2_desc:"Conversion-focused landing pages with strong visual hierarchy and clear CTAs.",
-    service_3_title:"UI Interaction", service_3_desc:"Micro-animations, hover states, scroll effects and engaging interactions.",
-    projects_kicker:"PROJECTS", projects_title:"From concept to premium digital product.",
-    project_1_title:"Nova Commerce", project_1_desc:"Electronics marketplace concept with minimal dark UI, product cards and a premium ecommerce atmosphere.",
-    project_2_desc:"Creator and video platform concept for Uzbekistan with a purple-blue visual system.",
-    contact_kicker:"CONTACT", contact_title:"Let’s build the next standout project.", contact_desc:"Reach out for collaboration, a web project or a fresh digital idea.",
-    phone_label:"Phone", footer_text:"Designed & developed with HTML, CSS & JavaScript.", back_top:"Back to top"
+    roleSmall:'Frontend Developer', navHome:'Home', navAbout:'About', navServices:'Services', navProjects:'Projects', navContact:'Contact',
+    badge:'Premium frontend experiences', heroName:'Ridzhan', heroRole:'Full Frontend Developer', heroEdu:'Sarbon Education Center — IT & English student',
+    heroText:'I build modern, fast, animation-rich websites that create value for businesses. My goal is to turn ideas into premium frontend products.',
+    writeMe:'Contact me', seeWork:'See my work', statTech:'Technologies', statProjects:'Featured projects', statFocus:'Focus',
+    techTitle:'My technologies', aboutTitle:'About me', aboutText:'I enjoy building premium, minimal and high-impact interfaces for real clients and businesses. Clean Apple/iOS-inspired UI, glassmorphism, motion and responsive frontend are my core style.',
+    servicesTitle:'Services', servicesText:'Small cards, premium motion, gradient shadows and a strong frontend focus.',
+    s1:'Business website', s1d:'Reliable and modern corporate websites.', s2:'Landing page', s2d:'High-converting and impactful landing pages.', s3:'Dashboard', s3d:'Clean and practical admin interfaces.', s4:'Marketplace', s4d:'E-commerce and product platforms.', s5:'Responsive frontend', s5d:'Perfect experience on every device.', s6:'UI implementation', s6d:'Turning Figma designs into real frontend.', s7:'Full site', s7d:'Complete end-to-end website development.', s8:'Cyberpunk websites', s8d:'Futuristic and visually strong web experiences.',
+    projectsTitle:'Projects', projectsText:'Each project has its own detailed modal.',
+    oqimMini:'Real people, real stories.', oqimDesc:'Short-video and creator platform concept.', exteraMini:'Find anything you need.', exteraDesc:'Modern e-commerce and marketplace platform.', details:'Details',
+    contactTitle:'Let’s build a strong project together.', contactText:'If you need premium frontend, a landing page, business site or marketplace, feel free to contact me.'
+  }
+};
+
+const projectData = {
+  oqim: {
+    uz: {
+      title: 'OQIM',
+      subtitle: 'Video Platform',
+      desc: 'OQIM — qisqa videolar, reels, creator profillari va obuna tizimiga ega zamonaviy video platforma konsepti. Loyiha sodda, tez va foydalanuvchiga qulay interfeys tamoyiliga qurilgan.',
+      features: [
+        'Qisqa video feed va creator ekotizimi',
+        'Profil, obuna va kontent tavsiya bloklari',
+        'Mobilga mos va premium neon UI',
+        'React asosida modern frontend konsepti'
+      ],
+      stack: ['React', 'Tailwind CSS', 'Firebase', 'Responsive UI']
+    },
+    en: {
+      title: 'OQIM', subtitle: 'Video Platform',
+      desc: 'OQIM is a modern short-video platform concept with reels, creator profiles and a subscription system. The project focuses on simplicity, speed and a user-friendly interface.',
+      features: [
+        'Short-video feed and creator ecosystem',
+        'Profiles, subscriptions and recommendation blocks',
+        'Mobile-friendly premium neon UI',
+        'Modern frontend concept built around React'
+      ],
+      stack: ['React', 'Tailwind CSS', 'Firebase', 'Responsive UI']
+    }
+  },
+  extera: {
+    uz: {
+      title: 'EXTERA', subtitle: 'Marketplace',
+      desc: 'EXTERA — turli mahsulotlar uchun mo‘ljallangan premium marketplace konsepti. Mahsulot katalogi, qidiruv, savatcha va to‘lov oqimi bir butun foydalanuvchi tajribasiga jamlangan.',
+      features: [
+        'Mahsulotlar katalogi va qidiruv',
+        'Savatcha, checkout va to‘lov oqimi',
+        'Premium e-commerce UI tizimi',
+        'Biznesga tayyor marketplace tuzilmasi'
+      ],
+      stack: ['React', 'Tailwind CSS', 'Stripe', 'Responsive UI']
+    },
+    en: {
+      title: 'EXTERA', subtitle: 'Marketplace',
+      desc: 'EXTERA is a premium marketplace concept designed for a wide range of products. Product catalog, search, cart and checkout are combined into one seamless user experience.',
+      features: [
+        'Product catalog and search',
+        'Cart, checkout and payment flow',
+        'Premium e-commerce UI system',
+        'Business-ready marketplace structure'
+      ],
+      stack: ['React', 'Tailwind CSS', 'Stripe', 'Responsive UI']
+    }
   }
 };
 
 function setLanguage(lang){
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => {
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key = el.dataset.i18n;
-    if(translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
+    if(translations[lang][key]) el.textContent = translations[lang][key];
   });
-  document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
-  localStorage.setItem("portfolio-lang", lang);
+  document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.toggle('active', btn.dataset.lang === lang));
 }
 
-document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => setLanguage(btn.dataset.lang)));
-
-const savedTheme = localStorage.getItem("portfolio-theme");
-if(savedTheme) html.dataset.theme = savedTheme;
-themeToggle.addEventListener("click", () => {
-  const next = html.dataset.theme === "dark" ? "light" : "dark";
-  html.dataset.theme = next;
-  localStorage.setItem("portfolio-theme", next);
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>setLanguage(btn.dataset.lang));
 });
 
-menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
-nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: .13 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-const glow = document.querySelector(".cursor-glow");
-window.addEventListener("pointermove", e => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
+themeToggle.addEventListener('click', ()=>{
+  body.classList.toggle('light');
+  localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
 });
 
-const tilt = document.querySelector(".tilt-card");
-if(tilt){
-  tilt.addEventListener("pointermove", e => {
-    const rect = tilt.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - .5;
-    const y = (e.clientY - rect.top) / rect.height - .5;
-    tilt.style.transform = `rotateY(${x*9}deg) rotateX(${-y*8}deg)`;
-  });
-  tilt.addEventListener("pointerleave", () => tilt.style.transform = "rotateY(0) rotateX(0)");
+menuBtn.addEventListener('click', ()=>nav.classList.toggle('open'));
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click', ()=>nav.classList.remove('open')));
+
+function openModal(key){
+  const lang = localStorage.getItem('lang') || 'uz';
+  const data = projectData[key][lang];
+  modalContent.innerHTML = `
+    <p style="color:var(--muted);margin:0 0 6px">${data.subtitle}</p>
+    <h3>${data.title}</h3>
+    <p>${data.desc}</p>
+    <div class="stack">${data.stack.map(item => `<span>${item}</span>`).join('')}</div>
+    <h4>${lang === 'uz' ? 'Asosiy imkoniyatlar' : 'Core features'}</h4>
+    <ul>${data.features.map(item => `<li>${item}</li>`).join('')}</ul>
+  `;
+  modalRoot.classList.add('show');
+  modalRoot.setAttribute('aria-hidden', 'false');
 }
 
-document.querySelectorAll(".magnetic").forEach(btn => {
-  btn.addEventListener("pointermove", e => {
-    const r = btn.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width/2;
-    const y = e.clientY - r.top - r.height/2;
-    btn.style.transform = `translate(${x*.08}px, ${y*.1}px) translateY(-2px)`;
-  });
-  btn.addEventListener("pointerleave", () => btn.style.transform = "");
-});
+document.querySelectorAll('.open-modal').forEach(btn=>btn.addEventListener('click', ()=>openModal(btn.dataset.modal)));
+function closeModal(){ modalRoot.classList.remove('show'); modalRoot.setAttribute('aria-hidden','true'); }
+closeBtn.addEventListener('click', closeModal);
+modalClose.addEventListener('click', closeModal);
+window.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeModal(); });
 
-setLanguage(localStorage.getItem("portfolio-lang") || "uz");
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+if(localStorage.getItem('theme') === 'light') body.classList.add('light');
+setLanguage(localStorage.getItem('lang') || 'uz');
